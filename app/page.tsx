@@ -9,7 +9,8 @@ export default function Home() {
           <div>
             <div className="title">California Crash Heatmap</div>
             <div className="subtitle">
-              Interactive density with binned counts at low zoom
+              Interactive density map based off data from the California Crash
+              Reporting System, 2025
             </div>
           </div>
           <ThemeToggle />
