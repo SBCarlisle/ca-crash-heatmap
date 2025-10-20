@@ -2,6 +2,7 @@ import CrashHeatmap from "@/components/Map";
 import ThemeToggle from "@/components/ThemeToggle";
 
 export default function Home() {
+  const disableMap = process.env.NEXT_PUBLIC_DISABLE_MAP === "1";
   return (
     <div className="font-sans min-h-screen p-6 sm:p-8">
       <div className="container">
@@ -17,7 +18,22 @@ export default function Home() {
         </div>
         <div className="card">
           <div className="map-wrap">
-            <CrashHeatmap />
+            {disableMap ? (
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  height: "100%",
+                  fontSize: 14,
+                  opacity: 0.8,
+                }}
+              >
+                Map disabled (NEXT_PUBLIC_DISABLE_MAP=1)
+              </div>
+            ) : (
+              <CrashHeatmap />
+            )}
           </div>
         </div>
       </div>
